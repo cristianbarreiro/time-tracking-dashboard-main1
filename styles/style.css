@@ -82,6 +82,7 @@ body {
 }
 
 .time {
+  margin-top: 0.4em;
   font-size: 40px;
   font-weight: 300;
 }
