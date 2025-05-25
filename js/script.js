@@ -3,36 +3,44 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".times");
   const trackItems = document.querySelectorAll(".track-item");
   let data = [];
-  let activeElement = document.querySelector(".times p.active") || times[1];
+  // Active period defining which data is displayed (click to change)
+  let activePeriod = (
+    document.querySelector(".times p.active") || times[1]
+  ).textContent.toLowerCase();
 
-  // Initial mark
-  activeElement.classList.add("active");
+  // Mark the initial asset
+  setActiveClass(activePeriod);
 
-  // Load JSON data
+  // Load JSON and update UI with active period
   fetch("data.json")
     .then((response) => response.json())
     .then((json) => {
       data = json;
-      updateUI(activeElement.textContent.toLowerCase());
+      updateUI(activePeriod);
     });
 
-  // Hover logic + UI update on mouse over
+  // On mouse over, only change visual class (no data change)
   times.forEach((p) => {
     p.addEventListener("mouseenter", () => {
       times.forEach((el) => el.classList.remove("active"));
       p.classList.add("active");
-      activeElement = p;
+    });
 
-      // Update UI with button text
-      updateUI(p.textContent.toLowerCase());
+    // When clicked, change the active period and update UI with data
+    p.addEventListener("click", () => {
+      activePeriod = p.textContent.toLowerCase();
+      setActiveClass(activePeriod);
+      updateUI(activePeriod);
     });
   });
 
+  // When the mouse leaves the container, return to the permanent active class and update UI if necessary
   container.addEventListener("mouseleave", () => {
-    times.forEach((el) => el.classList.remove("active"));
-    activeElement.classList.add("active");
+    setActiveClass(activePeriod);
+    updateUI(activePeriod);
   });
 
+  // Function for updating the UI with the data of the selected period
   function updateUI(period) {
     data.forEach((item, index) => {
       const track = trackItems[index];
@@ -50,6 +58,17 @@ document.addEventListener("DOMContentLoaded", () => {
       else if (period === "monthly") label = "Last Month";
 
       previous.textContent = `${label} - ${prev} hrs`;
+    });
+  }
+
+  // Function to manage active visual classes
+  function setActiveClass(period) {
+    times.forEach((el) => {
+      if (el.textContent.toLowerCase() === period) {
+        el.classList.add("active");
+      } else {
+        el.classList.remove("active");
+      }
     });
   }
 });
