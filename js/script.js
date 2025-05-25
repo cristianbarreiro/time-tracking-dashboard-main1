@@ -2,7 +2,7 @@ const times = document.querySelectorAll(".times p");
 const container = document.querySelector(".times");
 
 // Inicially mark as active the first element with the "active" class.
-let activeElement = document.querySelector(".times p.active") || times[0];
+let activeElement = document.querySelector(".times p.active") || times[1];
 activeElement.classList.add("active");
 
 times.forEach((p) => {
