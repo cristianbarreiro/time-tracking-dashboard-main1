@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
+
+:root {
+  --background-color: hsl(226, 43%, 10%);
+  --background-light: hsl(235, 46%, 20%);
+  --color-blue: hsl(246, 80%, 60%);
+  --color-orange: hsl(15, 100%, 70%);
+  --color-light-blue: hsl(195, 74%, 62%);
+  --color-red: hsl(348, 100%, 68%);
+  --color-green: hsl(145, 58%, 55%);
+  --color-purple: hsl(264, 64%, 52%);
+  --color-yellow: hsl(43, 84%, 65%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Rubik", sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 3em;
+  display: flex;
+}
+
+.sidebar {
+  background-color: var(--background-light);
+
+  border-radius: 10px;
+}
+
+.tracks {
+  flex-grow: 1;
+  margin-left: 1.5em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: 1.5em;
+}
+
+.profile {
+  background-color: var(--color-blue);
+  padding: 1.5em;
+  border-radius: 10px;
+  max-width: 100%;
+  width: 130px;
+}
+
+.profile img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-bottom: 2em;
+}
+
+.report-text {
+  font-size: 12px;
+  color: white;
+  font-weight: 200;
+}
+
+.name {
+  font-size: 30px;
+  color: white;
+  font-weight: 300;
+  font-family: "Rubik", sans-serif;
+}
+
+.times {
+  padding: 1em 1.5em;
+}
+
+.times p {
+  margin: 0;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.3s;
+  line-height: 1.5;
+}
+
+.times p.active {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.track-item {
+  background-color: white;
+  border-radius: 10px;
+  background-color: var(--background-light);
+  color: white;
+  padding: 1em;
+  position: relative;
+  margin-top: 14px;
+}
+
+.track-item .nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.track-item .nav span:nth-child(1) {
+  margin-top: -0.3em;
+  font-weight: bolder;
+}
+
+.track-item time {
+  font-size: 2em;
+  margin-top: 0.5em;
+}
+
+.tracl-item previous {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.track-item::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: -15px;
+  left: 0;
+  z-index: -1;
+  border-radius: 10px;
+  transition: top 0.3s;
+}
+
+.track-item:hover::after {
+  top: -30px;
+}
+
+.track-item:nth-child(1)::after {
+  background-color: var(--color-orange);
+  background-image: url(../images/icon-work.svg);
+  background-repeat: no-repeat;
+  background-size: 30% 30%;
+  background-position: calc(100% - 10px) top;
+}
+
+.track-item:nth-child(2)::after {
+  background-color: var(--color-light-blue);
+  background-image: url(../images/icon-play.svg);
+  background-repeat: no-repeat;
+  background-size: 30% 30%;
+  background-position: calc(100% - 10px) top;
+}
+.track-item:nth-child(3)::after {
+  background-color: var(--color-red);
+  background-image: url(../images/icon-study.svg);
+  background-repeat: no-repeat;
+  background-size: 30% 30%;
+  background-position: calc(100% - 10px) top;
+}
+.track-item:nth-child(4)::after {
+  background-color: var(--color-green);
+  background-image: url(../images/icon-exercise.svg);
+  background-repeat: no-repeat;
+  background-size: 30% 30%;
+  background-position: calc(100% - 10px) top;
+}
+.track-item:nth-child(5)::after {
+  background-color: var(--color-purple);
+  background-image: url(../images/icon-social.svg);
+  background-repeat: no-repeat;
+  background-size: 30% 35%;
+  background-position: calc(100% - 10px) top;
+}
+.track-item:nth-child(6)::after {
+  background-color: var(--color-yellow);
+  background-image: url(../images/icon-self-care.svg);
+  background-repeat: no-repeat;
+  background-size: 30% 30%;
+  background-position: calc(100% - 10px) top;
+}
+
+@media (max-width: 680px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    margin-bottom: 1.5em;
+  }
+
+  .profile {
+    width: auto !important;
+  }
+
+  .tracks {
+    margin-left: 0;
+  }
+}
