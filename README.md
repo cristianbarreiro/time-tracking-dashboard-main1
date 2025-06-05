@@ -9,7 +9,7 @@ This is my solution to the challenge from Frontend Mentor. The main goal was to 
 ## 🚀 Live Site
 
 - [Live Site](https://time-tracking-dashboard-main1.vercel.app)
-- [GitHub Repository](https://github.com/cristianbarreiro/time-tracking-dashboard-main)
+- [GitHub Repository](https://github.com/cristianbarreiro/time-tracking-dashboard-main1)
 
 ## 📋 Challenge Overview
 
