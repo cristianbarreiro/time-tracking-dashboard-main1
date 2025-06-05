@@ -1,10 +1,10 @@
 # Frontend Mentor - Time tracking dashboard
 
-This is my solution to the ![Design preview for the Time tracking dashboard coding challenge](./preview.jpg) challenge from Frontend Mentor. The main goal was to replicate the provided design and add interactivity using HTML, CSS, and plain JavaScript.
+This is my solution to the challenge from Frontend Mentor. The main goal was to replicate the provided design and add interactivity using HTML, CSS, and plain JavaScript.
 
 ## 📸 Preview
 
-![Project preview](./screenshot.png)
+![Design preview for the Time tracking dashboard coding challenge](./preview.jpeg)
 
 ## 🚀 Live Site
 
